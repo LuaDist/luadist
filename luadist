@@ -438,4 +438,4 @@ for i = n, #arg do
 end
 
 -- Run command
-return commands[command].run(dir, names, variables)
+os.exit(commands[command].run(dir, names, variables))
