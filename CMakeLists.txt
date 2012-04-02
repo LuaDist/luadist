@@ -45,5 +45,5 @@ install_lua_module ( dist.persist dist/persist.lua )
 install_lua_module ( dist.sys dist/sys.lua )
 install_lua_module ( dist.config ${CMAKE_CURRENT_BINARY_DIR}/dist/config.lua )
 
-install_data ( COPYRIGHT README )
+install_data ( COPYRIGHT README.md )
 install_doc ( doc/ )
