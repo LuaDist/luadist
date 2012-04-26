@@ -91,9 +91,11 @@ function build(dist, depl, variables)
 	-- Determine build commands
 	local make = config.make
 	local cmake = config.cmake
+	local ctest = config.ctest
 	if config.debug then 
 		make = config.makeDebug 
 		cmake = config.cmakeDebug
+		ctest = config.ctestDebug
 	end
 	
 	-- Build
@@ -101,6 +103,10 @@ function build(dist, depl, variables)
 	if not ok then return nil, "CMake failed pre-cmake script in directory " .. build end
 	local ok = sys.execute("cd " .. sys.Q(build) .. " && " .. make)
 	if not ok then return nil, "CMake failed building in directory " .. build end
+	if config.test then
+		local ok = sys.execute("cd " .. sys.Q(build) .. " && " .. ctest)
+		if not ok then return nil, "CMake failed test in directory " .. build end
+	end
 
 	-- Save info
 	info.arch = config.arch
