@@ -1,4 +1,4 @@
-# Copyright (C) 2007-2011 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Drahoš
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
@@ -7,7 +7,8 @@
 # C type needed for correct library suffix and prefix detection
 project ( luadist C )
 cmake_minimum_required ( VERSION 2.6 )
-include ( dist.cmake )
+include ( cmake/dist.cmake )
+include ( lua )
 
 ## LuaDist settings
 # Host specific setup
